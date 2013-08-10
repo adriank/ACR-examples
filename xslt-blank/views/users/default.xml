@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	xmlns:mg="http://asyncode.com/Mongo"
+	xmlns:op="http://asyncode.com/Interpreter"
+	inherits="users/_super_">
+
+	<node name="userList"
+			 command="mg:find"
+			 mg:coll="users"
+			 mg:sort="name"
+			 mg:direction="ascending">
+		{
+			"suspended": {
+				"$ne":true
+			}
+		}
+	</node>
+
+	<set name="body" before="layout">
+		<container name="body" width="950">
+			<widget tag="h1"><ml name="users"/></widget>
+
+			<widget>
+				<a href="/users/register" class="btn btn-primary btn-small"><ml name="newUser"/></a><br/><br/>
+			</widget>
+
+			<widget tag="ol" subtag="li" name="users" dataSource="userList" class="unstyled">
+				<node name="name"/>
+				<a class="link-icon" href="" title="" target="_blank" condition="facebook">
+					<pars for="title">Facebook</pars>
+					<pars for="href"><node name="facebook"/></pars>
+					<i class="icon-facebook"/>
+				</a>
+				<a class="link-icon" href="" title="" target="_blank" condition="gplus">
+					<pars for="title">Google +</pars>
+					<pars for="href"><node name="gplus"/></pars>
+					<i class="icon-google-plus"/>
+				</a>
+				<a class="link-icon" href="" title="" target="_blank" condition="linkedin">
+					<pars for="title">LinkedIn</pars>
+					<pars for="href"><node name="linkedin"/></pars>
+					<i class="icon-linkedin"/>
+				</a>
+			</widget>
+		</container>
+	</set>
+
+	<!--<output XSLTFile="None"/>-->
+</view>

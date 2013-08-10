@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	xmlns:mg="http://asyncode.com/Mongo"
+	xmlns:op="http://asyncode.com/Interpreter"
+	xmlns:m="http://asyncode.com/email"
+	xmlns:h="http://asyncode.com/Headers"
+	inherits="_settings_">
+
+	<post>
+		<param name="email" type="email"/>
+	</post>
+
+	<set name="key" command="op:exec">generateID()</set>
+
+	<set name="updateUser" command="mg:update" mg:coll="users">
+		<where>{
+			"email":$.email,
+			"suspended": {
+				"$ne":true
+			}
+		}
+		</where>
+		{
+			"$set":{
+				"resetPswdKey":$.key,
+				"modtime":now()
+			}
+		}
+	</set>
+
+	<node name="sendMail"
+		command="m:send"
+		m:To="{$.email}"
+		m:Sender="register@{$.domainName}"
+		m:From="register@{$.domainName}"
+		m:Content-Type="text/html; charset=utf-8"
+		m:MIME-Version="1.0"
+		m:Subject="{$.domainName} - reset your password!"><![CDATA[Hello, {$.email}
+<p>Click <a href="http://{$env.domain}/users/admin/setPassword/{$.key}/" title="reset password">here</a> to reset your password.</p>
+
+<div style="background:#333; height:32px; width:100%; padding:16px;color:#fff;margin-top:64px;">
+	<div style="padding-top:10px;float:left;">Powered by <a href="http://asyncode.com/">Asyncode</a></div> <div style="float:right;margin-right:64px;"><img src="http://asyncode.com/img/logo.png" height="32"/></div>
+</div>]]>
+	</node>
+
+	<set name="redirect" command="h:redirect" h:location="/login"/>
+
+	<output XSLTFile="None"/>
+
+</view>

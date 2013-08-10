@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	xmlns:mg="http://asyncode.com/Mongo"
+	xmlns:m="http://asyncode.com/Email"
+	xmlns:u="http://asyncode.com/User"
+	xmlns:h="http://asyncode.com/Headers"
+	inherits="_settings_">
+
+	<post>
+	  <param name="email" type="email"/>
+	  <param name="password" type="nonempty"/>
+		<param name="r_password" type="nonempty"/>
+		<param name="name" type="text"/>
+	</post>
+
+	<condition name="passwdCheck">$.password is $.r_password</condition>
+
+	<set name="admin" command="mg:count" mg:coll="users">
+		{"role":"admin"}
+	</set>
+
+	<node name="userCreated"
+		command="u:register"
+		u:email="{$.email}"
+		u:password="{$.password}"
+		u:role="admin"
+		u:data="{'name':$.name}"
+		condition="$ss.role is 'admin' or not $.admin"
+	/>
+
+	<node name="sendMail"
+		command="m:send"
+		m:To="{$.email}"
+		m:Sender="register@{$.domainName}"
+		m:From="register@{$.domainName}"
+		m:Content-Type="text/html; charset=utf-8"
+		m:MIME-Version="1.0"
+		m:Subject="{$.domainName} - admin created!"
+		condition="$.userCreated and not $.userCreated.@error">
+		<![CDATA[<b>Hi, ]]>{$.name}<![CDATA[,</b>
+		<h2>Congratulations! Your {$.domainName} administrator account has been created!</h2>
+
+		<a href="http://]]>{$env.domain}<![CDATA[/users/admin/setPassword/]]>{$.key}<![CDATA[/">Click here to set your password and login.</a>
+
+		<div style="background:#333; height:32px; width:100%; padding:16px;color:#fff;margin-top:64px;">
+			<div style="padding-top:10px;float:left;">Powered by <a href="http://asyncode.com/">Asyncode</a></div> <div style="float:right;margin-right:64px;"><img src="http://asyncode.com/img/logo.png" height="32"/></div>
+		</div>]]>
+	</node>
+
+	<set name="redirect" command="h:redirect" h:location="/login" condition="not $.userCreated.@error"/>
+
+	<output XSLTFile="none"/>
+
+</view>

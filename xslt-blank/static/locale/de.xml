@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<t>
+  <siteName>Altix Panel</siteName>
+  <words>
+		<date>date</date>
+		<posted>posted</posted>
+		<create_date>created</create_date>
+		<language>Language</language>
+		<polish>Polish</polish>
+		<english>English</english>
+		<password>Password</password>
+		<r_password>Repeat password</r_password>
+		<file>File</file>
+		<page>Page</page>
+		<ago>ago</ago>
+	</words>
+  <delete>Delete</delete>
+  <edit>Edit</edit>
+  <add>Ass</add>
+  <editData>Edit</editData>
+  <accessibility>Using screen reader? Click here to find out how to use the page.</accessibility>
+  <submit>Submit</submit>
+  <drafts>Drafts</drafts>
+  <abstract>Intro</abstract>
+  <toc>Table of contents</toc>
+  <by>by</by>
+  <comments>Comments</comments>
+  <notFoundHead>Sorry, page you requested does not exist.</notFoundHead>
+  <notFound>Sorry, page you requested was not found.</notFound>
+  <previousPage>Previous page</previousPage>
+  <nextPage>Next page</nextPage>
+  <draft>Draft?</draft>
+  <content>Content</content>
+  <title>Title</title>
+  <realm>Realm</realm>
+  <sName>Last name</sName>
+  <fName>First name</fName>
+  <website>Website</website>
+  <organization>Organization</organization>
+  <defaultPage>Homepage</defaultPage>
+  <email>Email</email>
+  <name>Name</name>
+  <company>Company</company>
+  <readMore>Read more</readMore>
+  <province>Province</province>
+  <city>City</city>
+  <added>Added</added>
+  <ZIPCode>ZIP Code</ZIPCode>
+  <noArticle>The Article Does Not Exist</noArticle>
+  <admin>
+		<imgList>Images</imgList>
+		<showAllTexts>All texts</showAllTexts>
+		<uploadImage>Upload a new image</uploadImage>
+		<pageSettings>Page settings</pageSettings>
+		<updateSettings>Update settings</updateSettings>
+	</admin>
+  <provinces>
+		<ds>dolnośląskie</ds>
+		<kp>kujawsko-pomorskie</kp>
+		<le>lubelskie</le>
+		<lo>łódzkie</lo>
+		<lu>lubuskie</lu>
+		<mp>małopolskie</mp>
+		<mz>mazowieckie</mz>
+		<op>opolskie</op>
+		<pk>podkarpackie</pk>
+		<pl>podlaskie</pl>
+		<pm>pomorskie</pm>
+		<sl>śląskie</sl>
+		<sw>świętokrzyskie</sw>
+		<wm>warmińsko-mazurskie</wm>
+		<wp>wielkopolskie</wp>
+		<zp>zachodniopomorskie</zp>
+	</provinces>
+  <contactType>Contact type</contactType>
+  <c1>
+    <firmy>Store/Company</firmy>
+  </c1>
+  <c2>
+    <urzedy>Local government office</urzedy>
+  </c2>
+  <c3>
+    <PCPR>PCPR, MOPS, ROPS, GOPS</PCPR>
+  </c3>
+  <c4>
+    <szkoly>Schools, universities, Educational units</szkoly>
+  </c4>
+  <c5>
+    <fundacje>NGO's</fundacje>
+  </c5>
+  <c6>
+    <PZN>PZN Units</PZN>
+  </c6>
+  <c7>
+    <biblioteki>Libraries</biblioteki>
+  </c7>
+  <c8>
+    <muzea>Museums</muzea>
+  </c8>
+  <c9>
+    <indywid>Major individual customer</indywid>
+  </c9>
+  <c10>
+    <inne>Other</inne>
+  </c10>
+  <noText>No text</noText>
+  <keyWords>Keywords</keyWords>
+  <desc>Description</desc>
+  <PESEL>Reg. No.</PESEL>
+  <amount>Amount</amount>
+  <address>Street</address>
+  <telephone>Telephone</telephone>
+  <whenTime>Deadline/hour</whenTime>
+  <whatChanged>What has been changed?</whatChanged>
+  <addComment>Add comment</addComment>
+  <comment>Comment</comment>
+  <AccountNotFound>
+    <h3>Login error: Account not found</h3>
+  </AccountNotFound>
+  <WrongPassword>
+    <h3>Login error: Wrong password</h3>
+  </WrongPassword>
+  <sendPswdResetRequest>Reset your password</sendPswdResetRequest>
+  <me>Me</me>
+  <who>Who</who>
+  <where>Where</where>
+  <what>What</what>
+  <when>When</when>
+  <type>Type</type>
+  <remaining>Remaining</remaining>
+  <romania>Romania</romania>
+  <january>January</january>
+  <february>February</february>
+  <march>March</march>
+  <april>April</april>
+  <may>May</may>
+  <june>June</june>
+  <july>July</july>
+  <august>August</august>
+  <september>September</september>
+  <october>October</october>
+  <november>November</november>
+  <december>December</december>
+  <contests>Contests</contests>
+  <showAll>show all</showAll>
+  <lastChange>Last change</lastChange>
+  <noDeadline>Without deadline</noDeadline>
+  <startWork>start work</startWork>
+  <endWork>end work</endWork>
+  <wiki>wiki</wiki>
+  <addContest>Add contest</addContest>
+  <accounts>Accounts</accounts>
+  <log>History</log>
+  <addIndividualAccount>Add individual account</addIndividualAccount>
+  <addInstitutionalAccount>Add institutional account</addInstitutionalAccount>
+  <institutionName>Organization's name</institutionName>
+  <accountType>Organization's type</accountType>
+  <country>Country</country>
+  <VATRegNo>VAT Reg. No.</VATRegNo>
+  <tags>Tags</tags>
+  <editAccount>Edit account details</editAccount>
+  <accountImportance>Pipeline stage</accountImportance>
+  <new>New</new>
+  <lead>Lead</lead>
+  <hotLead>Hot Lead</hotLead>
+  <prospect>Prospect</prospect>
+  <account>Account</account>
+  <keyAccount>Key Account</keyAccount>
+  <contacts>Contacts</contacts>
+  <recentContacts>Recently added contacts</recentContacts>
+  <editContact>Edit contact</editContact>
+  <all>all</all>
+  <addContact>Add contact</addContact>
+  <notes>Notes</notes>
+  <options>Options</options>
+  <whoAdded>Added by</whoAdded>
+  <institution>Institution</institution>
+  <institution>Institution</institution>
+  <trashContact>Trash</trashContact>
+  <login>Login</login>
+  <forgottenPswd>Frogot your password?</forgottenPswd>
+  <resetPassword>Reset your password</resetPassword>
+  <todo>To do</todo>
+  <task>Task</task>
+  <tasks>Tasks</tasks>
+  <ToDoList>To do list</ToDoList>
+  <tasksToDo>Tasks to complete</tasksToDo>
+  <doneTasks>Accomplished</doneTasks>
+  <addTask>Add task</addTask>
+  <editTask>Edit task</editTask>
+  <dueTime>Due time</dueTime>
+  <doneTime>Completed</doneTime>
+  <archive>archive</archive>
+  <do>Complete</do>
+  <undo>Undo</undo>
+  <deadline>Deadline</deadline>
+  <whoOrdered>Delegated by</whoOrdered>
+  <contractor>Whose task is it?</contractor>
+  <done>Done</done>
+  <deadlineOn>Enable deadline</deadlineOn>
+  <due>Deadline</due>
+  <contractedTo>Contracted to</contractedTo>
+  <contractedBy>Contracted by</contractedBy>
+  <delegated>delegated</delegated>
+  <delegatedTasks>Delegated task</delegatedTasks>
+  <dashboard>Dashboard</dashboard>
+  <users>Users</users>
+  <makeAdmin>Grant administrator privileges</makeAdmin>
+  <userProfile>User profile </userProfile>
+  <aboutMe>About me</aboutMe>
+  <role>Role</role>
+  <reportsTo>Reports to</reportsTo>
+  <position>Position</position>
+  <gg>GG no.</gg>
+  <skype>Skype</skype>
+  <etaty>I work...</etaty>
+  <etaty>I work...</etaty>
+  <workingFromH>Working from</workingFromH>
+  <workingFromM>Minutes</workingFromM>
+  <na> </na>
+  <partTime>% full time</partTime>
+  <suspendUser>Suspend user</suspendUser>
+  <workRecord>Work record</workRecord>
+  <day>day</day>
+  <start>start</start>
+  <end>end</end>
+  <userList>User list</userList>
+  <suspendedUsers>Suspended users</suspendedUsers>
+  <userSettings>User settings</userSettings>
+  <sumWorked>sum</sumWorked>
+  <register>Register a user</register>
+  <setNewPassword>Set a new password</setNewPassword>
+  <keyAlreadyUsed>The key has already been used</keyAlreadyUsed>
+  <goToPaswdResetText>
+		The key has already been used. To generate a new key go to <a href="/users/admin/resetPassword">link</a>.
+	</goToPaswdResetText>
+  <wikiTitle>Wiki</wikiTitle>
+  <author>Author</author>
+  <addPage>Add page</addPage>
+  <created>Created</created>
+  <lastModified>Last modified</lastModified>
+  <editItem>Edit item</editItem>
+  <issues>Issues</issues>
+  <issue>Issue</issue>
+  <addIssue>Add an issue</addIssue>
+  <addNote>Add a note</addNote>
+  <owner>Owner</owner>
+  <createdIssue>Created issue</createdIssue>
+  <addedNote>Added a note</addedNote>
+  <opportunities>Opportunities</opportunities>
+  <editOpportunity>Edit opportunity</editOpportunity>
+  <newOpportunity>New opportunity</newOpportunity>
+  <opportunityType>Type</opportunityType>
+  <contest>Contest</contest>
+  <tender>Tender</tender>
+  <tenders>Tenders</tenders>
+  <inquiry>Inquiry</inquiry>
+  <submittedAmmount>Submitted amount</submittedAmmount>
+  <ownContributionPercent>% own contribution</ownContributionPercent>
+  <plannedAmmount>Planned amount to submit</plannedAmmount>
+  <grantedAmmount>Amount granted</grantedAmmount>
+  <offersToSubmit>No. of offers/applications to submit</offersToSubmit>
+  <noOfOffersSubmitted>No. of offers/applications</noOfOffersSubmitted>
+  <noOfWinningOffers>Winning offers/applications</noOfWinningOffers>
+  <submissionDate>Submission date</submissionDate>
+  <offerAuthor>Author of the offer/application</offerAuthor>
+  <formallyAccepted>Meeting formal criteria</formallyAccepted>
+  <meritoricalyAccepted>Meeting substantial criteria</meritoricalyAccepted>
+  <totalAmount>Total amount</totalAmount>
+  <noOfOffersAllowed>Max. no. of offers/applications</noOfOffersAllowed>
+  <opportunityDeadline>Submission deadline</opportunityDeadline>
+  <opportunityDeadlineTime>What time?</opportunityDeadlineTime>
+  <acceptOpportunity>Accept opportunity</acceptOpportunity>
+  <offerGuidelines>Additional guidelines</offerGuidelines>
+  <submissionFailure>Not submitted</submissionFailure>
+  <failureReason>Why not submitted?</failureReason>
+  <discussion>Discussions</discussion>
+  <drive>Drive</drive>
+  <send>Send</send>
+  <percentUploaded>% uploaded</percentUploaded>
+  <fileName>File name</fileName>
+  <fileSize>File size</fileSize>
+  <noFilesSelected>No file has been selected</noFilesSelected>
+  <filesToUpload>Files to upload</filesToUpload>
+  <deleteFile>Delete</deleteFile>
+</t>

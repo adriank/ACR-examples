@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	xmlns:h="http://asyncode.com/headers">
+
+	<param name="lang"/>
+
+	<node command="h:setcookie" name="langChanged" h:name="pagelang" h:value="{$.lang}" h:path="/"/>
+	<node name="redirect" command="h:redirect" h:location="/"/>
+
+</view>

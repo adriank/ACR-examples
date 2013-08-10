@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+<!-- Core configuration -->
+<!-- Docs available here: http://docs.asyncode.com/text/ACR-project-configuration -->
+	<name>XSLT Demo</name>
+	<!--<debug enable="t" level="debug"/>-->
+	<!--<profiler enable="t"/>-->
+	<lang default="en" supported="de"/>
+<!-- Change if some external Mongo instalation is used or you preffer to other database name -->
+	<mongo db="XSLT-demo"/>
+	<timezone>UTC</timezone>
+	<output XSLTFile="index.xsl"/>
+	<!--<component name="filesystem">-->
+	<!--	<absolutePath>/mnt/asyncode/</absolutePath>-->
+	<!--</component>-->
+</config>

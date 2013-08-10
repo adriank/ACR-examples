@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	xmlns:mg="http://asyncode.com/Mongo"
+	xmlns:op="http://asyncode.com/Interpreter"
+	xmlns:h="http://asyncode.com/Headers"
+	inherits="_super_">
+
+	<param name="id"/>
+
+	<condition name="isAdmin">$ss.role is 'admin'</condition>
+
+	<set name="suspendUser" command="mg:update" mg:coll="users">
+		<where>{"_id":objectID($.id)}</where>
+		{
+			"$set":{
+				"suspended":true,
+				"suspendedDate":now(),
+				"modtime":now()
+			}
+		}
+	</set>
+
+	<set name="logoutUser" command="mg:remove" mg:coll="session">
+		{"ID":$.id}
+	</set>
+
+	<set name="redirect"
+			 command="h:redirect"
+			 h:location="/users/showUser/{$.id}/"/>
+
+	<output XSLTFile="None"/>
+
+</view>

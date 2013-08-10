@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	xmlns:mg="http://asyncode.com/Mongo"
+	xmlns:op="http://asyncode.com/interpreter"
+	xmlns:h="http://asyncode.com/Headers">
+
+	<condition>$ss.loggedIn</condition>
+
+	<post>
+		<param name="name"/>
+		<param name="hangouts"/>
+		<param name="facebook"/>
+		<param name="gplus"/>
+		<param name="linkedin"/>
+	</post>
+
+	<set name="updateUser" command="mg:update" mg:coll="users">
+		<where>{"_id":objectID($ss.ID)}}</where>
+		{
+			"$set":{
+				"name":$.name,
+				"hangouts":$.hangouts,
+				"facebook":$.facebook,
+				"gplus":$.gplus,
+				"linkedin":$.linkedin
+			}
+		}
+	</set>
+
+	<set name="redirect"
+			 command="h:redirect"
+			 h:location="/users"/>
+
+	<output XSLTFile="None"/>
+
+</view>

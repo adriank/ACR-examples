@@ -1,0 +1,13 @@
+{
+	"pageTitle":"test!",
+	"userSettings":"Settings",
+	"basicSettings":"Basic",
+	"contactSettings":"Contact",
+	"basicContactInfo":"Basic contact info",
+	"socialMedia":"Social media",
+	"telephone":"Telephone",
+	"IM":"Instant messaging",
+	"userName":"User name",
+
+	"noLocaleString":"No string locale for English available"
+}

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	xmlns:mg="http://asyncode.com/Mongo"
+	xmlns:op="http://asyncode.com/Interpreter"
+	inherits="users/_super_">
+
+	<param name="id"/>
+
+	<condition name="isLoggedIn">$ss.loggedIn</condition>
+
+	<set name="showConfidental" command="op:exec">$ss.ID is $.id or $ss.role is 'admin'</set>
+
+	<node name="user"
+			 command="mg:findOne"
+			 mg:coll="users"
+			 before="layout">
+		{"_id":objectID($.id)}
+	</node>
+
+	<set name="editable"
+			 condition="$ss.ID is $.id"
+			 default="false"
+			 before="layout">
+		true
+	</set>
+
+	<set name="settingsAdmin"
+			 before="layout"
+			 default="''"
+			 condition="$ss.role is 'admin' and $.user.role is not 'admin'">
+		<a href="/users/api/makeAdmin/{$.id}/"><ml name="makeAdmin"/></a><br/>
+	</set>
+
+	<set name="settingsSuspend"
+			 before="layout"
+			 default="''"
+			 condition="$ss.role is 'admin' and not $.user.suspended">
+		<a href="/users/api/suspendUser/{$.id}/"><ml name="suspendUser"/></a>
+	</set>
+
+	<set name="userSettings"
+			 before="layout"
+			 default="''"
+			 condition="$ss.ID is $.user._id">
+		<a href="/users/userSettings/"><ml name="userSettings"/></a><br/>
+	</set>
+
+  <set name="body" before="layout">
+    <pageTitle dataSource="user"><ml name="userProfile"/><node name="fName"/> <node name="sName"/></pageTitle>
+		<container name="body" width="950">
+			<widget name="header" tag="h2" dataSource="user"><ml name="userProfile"/><node name="fName"/> <node name="sName"/></widget>
+			<column width="half">
+				<widget name="stats" dataSource="user">
+					<dl class="key-value">
+						<div class="item">
+							<dt><ml name="position"/>:</dt>
+							<dd><node name="position"/></dd>
+						</div>
+						<div class="item">
+							<dt><ml name="reportsTo"/>:</dt>
+							<dd><a href="/users/showUser/"><pars for="href"><node name="reportsTo"/>/</pars><node name="reportsToName"/></a></dd>
+						</div>
+						<div class="item">
+							<dt><ml name="workingFromH"/>:</dt>
+							<dd><span id="fromH">{$.hour}</span> <ml name="na"/> <node name="etat"/><ml name="partTime"/></dd>
+						</div>
+						<div class="item">
+							<dt><ml name="city"/>:</dt>
+							<dd><node name="city"/>, <ml node="voivodeship"/></dd>
+						</div>
+						<div class="item">
+							<dt><ml name="telephone"/>:</dt>
+							<dd><node name="telephone"/></dd>
+						</div>
+						<div class="item">
+							<dt><ml name="skype"/>:</dt>
+							<dd><a href="skype:"><pars for="href"><node name="skype"/>?call</pars><node name="skype"/></a></dd>
+						</div>
+						<div class="item">
+							<dt><ml name="email"/>:</dt>
+							<dd><a href="mailto:"><pars for="href"><node name="email"/></pars><node name="email"/></a></dd>
+						</div>
+						<div class="item">
+							<dt><ml name="aboutMe"/>:</dt>
+							<dd><node name="aboutMe"/></dd>
+						</div>
+					</dl>
+				</widget>
+			</column>
+			<column>
+				<widget name="adminSettings">
+					{$.userSettings}
+					{$.settingsAdmin}
+					{$.settingsSuspend}
+				</widget>
+			</column>
+		</container>
+	</set>
+
+	<!--<output XSLTFile="None"/>-->
+</view>

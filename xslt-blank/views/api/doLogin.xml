@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	xmlns:u="http://asyncode.com/User"
+	xmlns:h="http://asyncode.com/Headers">
+
+	<post>
+	  <param name="email" type="email"/>
+		<param name="password"/>
+	</post>
+
+	<set name="loggedIn" command="u:login" u:email="{$.email}" u:password="{$.password}" condition="not $ss.ID"/>
+
+	<set name="redirectHome" command="h:redirect" h:location="/" condition="not $.loggedIn.@error"/>
+	<set name="redirect" command="h:redirect" h:location="/login/{$.loggedIn.@error}" condition="$.loggedIn.@error"/>
+
+</view>

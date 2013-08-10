@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	inherits="_super_">
+
+	<param name="name" default="''"/>
+
+	<set name="body" before="layout">
+		<container name="body">
+			<widget name="notFound">
+				<h2><ml name="notFoundHead"/></h2>
+				<ml name="page"/> <b>{$.name}</b> <ml name="notFound"/>
+			</widget>
+		</container>
+	</set>
+</view>

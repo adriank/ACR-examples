@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	type="abstract">
+
+	<set name="domainName">asyncode.com</set>
+
+	<set name="sysName">XSLT blank example</set>
+
+</view>

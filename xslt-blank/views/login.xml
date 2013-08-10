@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View">
+
+	<param name="error" default="false"/>
+
+	<set name="err" condition="$.error" default="''">
+		<widget name="error" class="alert alert-danger">
+			<ml name="{$.error}"/>
+		</widget>
+	</set>
+<node name="xxx">
+	{{ $env }}
+</node>
+  <node name="layout">
+    <pageTitle><ml name="login"/></pageTitle>
+		<!--<style url="http://acf.acimg.eu/css/grids.css"/>-->
+		<style url="/css/app.css"/>
+
+		<container name="body" width="750">
+			<widget>
+				<form class="form-signin" action="/api/doLogin" method="post" enctype="multipart/form-data">
+					{$.err}
+					<h2 class="form-signin-heading"><ml name="login"/></h2>
+					<input name="email" class="input-block-level" type="email" autofocus="" placeholder="" required="true">
+						<pars for="placeholder"><ml name="email"/></pars>
+					</input>
+					<input name="password" class="input-block-level" type="password" placeholder="" required="true">
+						<pars for="placeholder"><ml name="password"/></pars>
+					</input>
+					<!-- ACR does not have option for logging for one session as of now -->
+					<!--<label class="checkbox">-->
+					<!--	<input type="checkbox" value="remember-me"/>-->
+					<!--Remember me-->
+					<!--</label>-->
+					<button class="btn btn-large btn-primary btn-block" type="submit"><ml name="login"/></button>
+					<br/><ml name="forgottenPswd"/> <a href="/users/admin/resetPassword"><ml name="resetPassword"/></a>
+				</form>
+			</widget>
+		</container>
+	</node>
+
+	<!--<output XSLTFile="None"/>-->
+</view>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<t>
+	<createdIssue>
+		<div class="info">
+			<node name="age"/> <ml name="ago"/> <a href="/users/"><pars for="href"><node name="whoID"/></pars><node name="whoName"/></a> <ml name="createdIssue"/>.
+		</div>
+	</createdIssue>
+	<note>
+		<div class="info">
+			<node name="age"/> <ml name="ago"/> <a href="/users/"><pars for="href"><node name="whoID"/></pars><node name="whoName"/></a> <ml name="addedNote"/> <node name="addedNote"/>:
+		</div>
+		<div class="note">
+			<node name="note"/>
+		</div>
+	</note>
+</t>

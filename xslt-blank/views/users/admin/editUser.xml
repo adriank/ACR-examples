@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	xmlns:mg="http://asyncode.com/Mongo"
+	inherits="users/_super_">
+
+	<condition name="isLoggedIn">$ss.role is 'admin'</condition>
+
+	<param name="userID" type="text"/>
+
+	<node name="user" command="mg:findOne" mg:coll="users" before="layout">
+		{"_id":objectID($.userID)}
+	</node>
+
+	<set name="body" before="layout">
+		<pageTitle><ml name="register"/></pageTitle>
+		<container name="body" width="950">
+			<widget><h2><ml name="userRegistration"/></h2></widget>
+			<widget name="update" type="form" action="/api/user/update" dataSource="user">
+				<item name="email" type="text" ml="email"/>
+				<item name="fName" type="text" ml="fName"/>
+				<item name="sName" type="text" ml="sName"/>
+			</widget>
+		</container>
+	</set>
+</view>

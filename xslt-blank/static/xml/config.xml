@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<name>Asyncode</name>
+	<!--<staticdomain>http://szansa.acimg.eu/</staticdomain>-->
+	<staticdomain>/</staticdomain>
+	<description></description>
+	<keywords></keywords>
+	<backgroundcolor>white</backgroundcolor>
+	<defaultwidth>950</defaultwidth>
+</config>

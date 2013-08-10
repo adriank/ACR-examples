@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	xmlns:mg="http://asyncode.com/Mongo"
+	xmlns:op="http://asyncode.com/interpreter"
+	inherits="_html5_">
+
+	<set name="settings" command="mg:findOne" mg:coll="users" before="layout">
+		{"_id":objectID($ss.ID)}
+		<field name="password" show="false"/>
+		<field name="recentActivity" show="false"/>
+		<field name="approval_key" show="false"/>
+	</set>
+
+	<node name="settings" command="op:exec">
+		$.settings
+	</node>
+
+  <set name="body" before="layout">
+		<legend data-locale="basicContactInfo"> </legend>
+		<div class="form-group">
+			<label for="name" class="col-lg-4 control-label" data-locale="userName"> </label>
+			<div class="col-lg-5">
+				<input type="text" id="name" name="name" value="{$.settings.name}" title="" class="form-control"/>
+			</div>
+		</div>
+		<legend data-locale="IM"> </legend>
+		<div class="form-group">
+			<label for="hangouts" class="col-lg-4 control-label">Google Hangouts (Talk)</label>
+			<div class="col-lg-5">
+				<input type="text" id="hangouts" name="hangouts" value="{$.settings.hangouts}" title="" class="form-control"/>
+			</div>
+		</div>
+		<legend for="facebook" data-locale="socialMedia"> </legend>
+		<div class="form-group">
+			<label for="facebook" class="col-lg-4 control-label">Facebook</label>
+			<div class="col-lg-5">
+				<input type="url" id="facebook" name="facebook" value="{$.settings.facebook}" title="" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="gplus" class="col-lg-4 control-label">Google Plus</label>
+			<div class="col-lg-5">
+				<input type="url" id="gplus" name="gplus" value="{$.settings.gplus}" title="" class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="linkedin" class="col-lg-4 control-label">LinkedIn</label>
+			<div class="col-lg-5">
+				<input type="url" id="linkedin" name="linkedin" value="{$.settings.linkedin}" title="" class="form-control"/>
+			</div>
+		</div>
+	</set>
+
+	<output format="html5"/>
+
+</view>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<t>
+	<siteName>XSLT Demo</siteName>
+	<defaultPage>Homepage</defaultPage>
+
+	<date>date</date>
+	<posted>posted</posted>
+	<create_date>created</create_date>
+	<language>Language</language>
+	<english>English</english>
+	<file>File</file>
+	<settings>Settings</settings>
+	<page>Page</page>
+	<ago>ago</ago>
+	<delete>Delete</delete>
+	<edit>Edit</edit>
+	<add>Add</add>
+	<editData>Edit</editData>
+	<submit>Submit</submit>
+	<toc>Table of contents</toc>
+	<by>by</by>
+	<close>Close</close>
+	<save>Save</save>
+	<comments>Comments</comments>
+	<notFoundHead>Sorry, page you requested does not exist.</notFoundHead>
+	<notFound>Sorry, page you requested was not found.</notFound>
+	<content>Content</content>
+	<title>Title</title>
+	<website>Website</website>
+	<email>Email address</email>
+	<name>Name</name>
+	<updateSettings>Update settings</updateSettings>
+	<me>Me</me>
+	<who>Who</who>
+	<where>Where</where>
+	<what>What</what>
+	<when>When</when>
+	<type>Type</type>
+	<other>other</other>
+	<remaining>Remaining</remaining>
+
+	<january>January</january>
+	<february>February</february>
+	<march>March</march>
+	<april>April</april>
+	<may>May</may>
+	<june>June</june>
+	<july>July</july>
+	<august>August</august>
+	<september>September</september>
+	<october>October</october>
+	<november>November</november>
+	<december>December</december>
+	<lastChange>Last change</lastChange>
+	<addContest>Add contest</addContest>
+	<tags>Tags</tags>
+	<day>day</day>
+	<start>start</start>
+	<end>end</end>
+	<log>History</log>
+
+	<!-- USER -->
+	<login>Login</login>
+	<forgottenPswd>Frogot your password?</forgottenPswd>
+	<resetPassword>Reset it here!</resetPassword>
+	<showAll>show all</showAll>
+	<users>Users</users>
+	<userName>User name</userName>
+	<userList>User list</userList>
+	<suspendedUsers>Suspended users</suspendedUsers>
+	<userSettings>User settings</userSettings>
+	<updateYourSettings>Update your settings</updateYourSettings>
+	<register>Register a user</register>
+	<newUser>Create new user</newUser>
+	<registerAdmin>Register the first administrative account!</registerAdmin>
+	<password>Password</password>
+	<r_password>Repeat password</r_password>
+	<setNewPassword>Set new password</setNewPassword>
+	<sendPswdResetRequest>Reset your password</sendPswdResetRequest>
+	<AccountNotFound>Login error: Account not found!</AccountNotFound>
+	<WrongPassword>Login error: Wrong password!</WrongPassword>
+	<keyAlreadyUsed>The key has already been used</keyAlreadyUsed>
+	<goToPaswdResetText>The key has already been used. To generate a new key go to <a href="/users/admin/resetPassword">link</a>.</goToPaswdResetText>
+</t>

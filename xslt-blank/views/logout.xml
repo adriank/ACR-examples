@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	xmlns:h="http://asyncode.com/Headers"
+	xmlns:u="http://asyncode.com/user">
+
+	<node name="loggedOut" command="u:logout"/>
+	<node name="redirect" command="h:redirect" h:location="/"/>
+
+</view>

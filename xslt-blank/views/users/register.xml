@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	inherits="users/_super_">
+
+	<condition name="isLoggedIn">$ss.role is 'admin'</condition>
+
+	<set name="body" before="layout">
+		<pageTitle><ml name="register"/></pageTitle>
+		<style url="/css/app.css"/>
+
+		<container name="body">
+			<widget>
+				<h2 class="form-signin-heading text-center"><ml name="newUser"/></h2>
+				<form class="form-signin" action="/api/user/create" method="post" enctype="multipart/form-data">
+					<input name="name" class="input-block-level" type="text" placeholder="" required="true">
+						<pars for="placeholder"><ml name="userName"/></pars>
+					</input>
+					<input name="email" class="input-block-level" type="email" autofocus="" placeholder="" required="true">
+						<pars for="placeholder"><ml name="email"/></pars>
+					</input>
+					<input name="password" class="input-block-level" type="password" placeholder="" required="true">
+						<pars for="placeholder"><ml name="password"/></pars>
+					</input>
+					<input name="r_password" class="input-block-level" type="password" placeholder="" required="true">
+						<pars for="placeholder"><ml name="r_password"/></pars>
+					</input>
+					<button class="btn btn-large btn-primary btn-block" type="submit"><ml name="register"/></button>
+				</form>
+			</widget>
+		</container>
+
+	</set>
+
+</view>

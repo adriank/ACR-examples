@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	xmlns:op="http://asyncode.com/interpreter"
+	xmlns:mg="http://asyncode.com/Mongo"
+	inherits="_super_">
+
+	<condition name="loggedIn">$ss.loggedIn</condition>
+
+	<set name="moduleName" path="$.appData" before="layout">users</set>
+
+</view>

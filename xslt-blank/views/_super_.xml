@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://asyncode.com/View"
+	xmlns:h="http://asyncode.com/Headers"
+	xmlns:mg="http://asyncode.com/Mongo"
+	xmlns:op="http://asyncode.com/Interpreter"
+	inherits="_settings_">
+
+	<set name="loggedIn" command="h:redirect" h:location="/login" condition="not $ss.loggedIn"/>
+
+	<!-- In XSLT mode appData is a container for data consumable by client-side Javascript -->
+	<set name="appData" command="op:exec">
+		{
+			"domainName":$.domainName,
+			"moduleName":"main"
+		}
+	</set>
+
+	<set name="panel" default="''">
+		<widget name="acf-admin" class="navbar navbar-fixed-top navbar-inverse">
+			<div class="container-fluid">
+
+				<div id="user-settings" class="pull-right">
+					<a href="#">
+						<i class="icon-user icon-white icon-2x"/>
+					</a>
+					<div class="details hide">
+						<i class='online-indicator online'/> <b>{{ $ss.name }}</b>
+						<hr class="mh8"/>
+						<div class="pull-right">
+							<a href="/logout" class="text-error">
+								<i class="icon-off"/> <ml name="logout"/>
+							</a>
+						</div>
+						<div>
+							<a href="/users/settings" role="button" data-toggle="modal" data-target="#userSettings">
+								<i class="icon-cog"/> <ml name="settings"/>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<a class="navbar-brand" href="/">Asyncode</a>
+				<div class="nav-collapse collapse navbar-responsive-collapse">
+					<ul class="nav navbar-nav">
+						<li class="users"><a href="/users"><i class="icon-group icon-white"/> <ml name="users"/></a></li>
+					</ul>
+				</div>
+			</div>
+		</widget>
+	</set>
+
+	<node name="layout">
+		<pageTitle>{{ capitalize($.appData.moduleName) }}</pageTitle>
+		<style url="/css/app.css"/>
+		<script>
+			var appData={{ $.appData }}
+		</script>
+
+		<script url="/js/app.js"/>
+		{$.panel}
+
+		<div class="container-fluid">
+			{$.body}
+
+			<div class="container">
+				<widget name="author" class="text-right">
+					Powered by <a href="http://asyncode.com/text/ACEnv">Asyncode Env</a>
+				</widget>
+			</div>
+		</div>
+
+		<widget>
+			<div id="userSettings" class="modal fade" style="z-index:1050;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-big">
+			    <div class="modal-content">
+						<form action="/api/user/update" method="post" enctype="multipart/form-data" class="form-horizontal">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+								<h3><ml name="userSettings"/></h3>
+							</div>
+							<div class="modal-body">
+								<p class="text-center"><i class="icon-spinner icon-spin icon-3x"/></p>
+							</div>
+							<div class="modal-footer">
+								<button class="btn" data-dismiss="modal" aria-hidden="true"><ml name="close"/></button>
+								<button class="btn btn-primary" type="submit"><ml name="save"/></button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</widget>
+	</node>
+
+</view>
