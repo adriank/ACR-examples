@@ -2,8 +2,6 @@
 <view xmlns="http://asyncode.com/View"
 	inherits="users/_super_">
 
-	<condition name="isLoggedIn">$ss.role is 'admin'</condition>
-
 	<set name="body" before="layout">
 		<pageTitle><ml name="register"/></pageTitle>
 		<style url="/css/app.css"/>
