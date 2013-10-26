@@ -6,20 +6,38 @@
 	xmlns:h="http://asyncode.com/Headers"
 	inherits="_settings_">
 
+	<!-- 
+	
+	The purpose of this file is to process an user creation request. 
+	This file is executed after user clicks on submit button at /register page or an API call.
+	
+	-->
+
+	<!-- First we are defining four parameters that are passed here from registration form. All names must be the same as in the form at /register. -->
 	<post>
-	  <param name="email" type="email"/>
-	  <param name="password" type="nonempty"/>
+		<param name="email" type="email"/>
+		<param name="password" type="nonempty"/>
 		<param name="r_password" type="nonempty"/>
 		<param name="name" type="text"/>
 	</post>
+	
+	<!-- Condition is checking if password and its repeated version is the same. If not, runtime will raise an error and no commands will be executed. -->
 
 	<condition name="passwdCheck">$.password is $.r_password</condition>
+	
+	<!-- This counts how much users with admin privileges is in the database. -->
 
 	<set name="admin" command="mg:count" mg:coll="users">
 		{"role":"admin"}
 	</set>
+	
+	<!-- 
+	We use user components' register command to register new user in the system. 
+	u:data saves additional data to user object - here it is his/her name.
+	condition checks if logged user role is 'admin' or there is no admin registered. Either way it creates an user. If user is not admin and an admin is already registered, command is silently ignored, leaving error code on $.userCreated.@error.
+	-->
 
-	<node name="userCreated"
+	<set name="userCreated"
 		command="u:register"
 		u:email="{$.email}"
 		u:password="{$.password}"
@@ -27,6 +45,14 @@
 		u:data="{'name':$.name}"
 		condition="$ss.role is 'admin' or not $.admin"
 	/>
+	
+	<!-- 
+	
+	We need to inform registered user that the account is created. This code sends email to the user in the raw email mode.
+	Condition checks if mentioned $.userCreated.@error exists, if yes system is not going to send email.
+	$.domainName is set up in _settings_.xml
+	
+	-->
 
 	<node name="sendMail"
 		command="m:send"
@@ -47,8 +73,8 @@
 		</div>]]>
 	</node>
 
-	<set name="redirect" command="h:redirect" h:location="/login" condition="not $.userCreated.@error"/>
+	<!-- When all commands are executed, we need to redirect user to the login page. -->
 
-	<output XSLTFile="none"/>
+	<set name="redirect" command="h:redirect" h:location="/login" condition="not $.userCreated.@error"/>
 
 </view>
