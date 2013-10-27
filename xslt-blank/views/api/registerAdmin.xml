@@ -8,7 +8,7 @@
 
 	<!-- 
 	
-	The purpose of this file is to process an user creation request. 
+	The purpose of this file is to process a request to create a new user. 
 	This file is executed after user clicks on submit button at /register page or an API call.
 	
 	-->
@@ -21,20 +21,20 @@
 		<param name="name" type="text"/>
 	</post>
 	
-	<!-- Condition is checking if password and its repeated version is the same. If not, runtime will raise an error and no commands will be executed. -->
+	<!-- This condition checks if the submitted password and its repeated version are the same. If not, runtime will raise an error and no commands will be executed. -->
 
 	<condition name="passwdCheck">$.password is $.r_password</condition>
 	
-	<!-- This counts how much users with admin privileges is in the database. -->
+	<!-- This counts how many users with admin privileges are there in the database. -->
 
 	<set name="admin" command="mg:count" mg:coll="users">
 		{"role":"admin"}
 	</set>
 	
 	<!-- 
-	We use user components' register command to register new user in the system. 
-	u:data saves additional data to user object - here it is his/her name.
-	condition checks if logged user role is 'admin' or there is no admin registered. Either way it creates an user. If user is not admin and an admin is already registered, command is silently ignored, leaving error code on $.userCreated.@error.
+	We use user components' register command to register a new user in the system. 
+	u:data saves additional data to the user object - in this case his/her name.
+	the condition checks if the logged user's role is 'admin' or if there is no admin registered. Either way it creates a user. If the user is not admin and an admin is already registered, command is silently ignored, leaving error code on $.userCreated.@error.
 	-->
 
 	<set name="userCreated"
@@ -48,8 +48,8 @@
 	
 	<!-- 
 	
-	We need to inform registered user that the account is created. This code sends email to the user in the raw email mode.
-	Condition checks if mentioned $.userCreated.@error exists, if yes system is not going to send email.
+	We need to inform the registered user that the account is created. This code sends an email to the user in the raw email mode.
+	The condition checks if $.userCreated.@error mentioned exists. If yes, the system is not going to send an email.
 	$.domainName is set up in _settings_.xml
 	
 	-->
@@ -73,7 +73,7 @@
 		</div>]]>
 	</node>
 
-	<!-- When all commands are executed, we need to redirect user to the login page. -->
+	<!-- When all commands are executed, we need to redirect the user to the login page. -->
 
 	<set name="redirect" command="h:redirect" h:location="/login" condition="not $.userCreated.@error"/>
 
